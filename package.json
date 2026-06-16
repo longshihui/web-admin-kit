@@ -6,6 +6,7 @@
   "packageManager": "pnpm@10.12.1",
   "scripts": {
     "build": "pnpm -r --filter './packages/*' run build",
+    "commit": "cz",
     "docs:dev": "vitepress dev .",
     "docs:build": "vitepress build .",
     "docs:preview": "vitepress preview .",
@@ -22,13 +23,20 @@
     "test:run": "vitest run",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  },
   "devDependencies": {
     "@commitlint/cli": "^21.0.2",
     "@commitlint/config-conventional": "^21.0.2",
     "@eslint/js": "^10.0.1",
     "@release-it/conventional-changelog": "^11.0.1",
     "@types/node": "^22.15.29",
+    "commitizen": "^4.3.2",
     "conventional-changelog-conventionalcommits": "^9.3.1",
+    "cz-git": "^1.13.1",
     "eslint": "^10.5.0",
     "globals": "^17.6.0",
     "husky": "^9.1.7",

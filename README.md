@@ -14,7 +14,14 @@
 
 ```bash
 pnpm install
+pnpm commit
 pnpm test:run
 pnpm build
 pnpm docs:dev
 ```
+
+## Commit Workflow
+
+- Run `pnpm commit` to open the interactive Commitizen prompt powered by `cz-git`.
+- The prompt guides you through `type`, `scope`, `subject`, optional body, and issue footer fields.
+- The existing Husky `commit-msg` hook still runs `commitlint`, so manual commits remain validated against the conventional commit format.
