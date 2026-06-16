@@ -1,2 +1,7 @@
 packages:
   - packages/*
+allowBuilds:
+  esbuild: true
+overrides:
+  algoliasearch: 5.54.0
+  '@algolia/client-search': 5.54.0

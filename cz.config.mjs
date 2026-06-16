@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   subjectLimit: 72,
   allowBreakingChanges: ['feat', 'fix', 'refactor'],
   allowCustomScopes: true,
