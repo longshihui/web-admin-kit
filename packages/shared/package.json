@@ -1,0 +1,31 @@
+{
+  "name": "@lsh/shared",
+  "version": "0.0.0",
+  "description": "Shared types, constants, patterns, and validators for admin products.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "docs",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "vitest run --config vitest.config.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "js-base64": "^3.7.7",
+    "nanoid": "^5.0.7"
+  },
+  "devDependencies": {
+    "vitest": "^4.1.9"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "@lsh/hooks",
+  "version": "0.0.0",
+  "description": "Reusable Vue composition utilities for admin products.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "docs",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "vitest run --config vitest.config.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.35"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.12",
+    "vitest": "^4.1.9",
+    "vue": "^3.4.35"
+  }
+}
