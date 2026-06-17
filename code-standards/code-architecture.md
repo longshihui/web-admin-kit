@@ -14,8 +14,8 @@
 
 - 命名用词优先使用业务语义，避免 `Common`、`Wrapper`、`Panel`、`MainContent`、`IndexTab` 等空泛命名。
 - 命名要直观，使得看到文件名就知道是做什么的
-  - 例如在设计一个合同新建组件的弹窗时，应该命名为`ContractCreateDialog.vue`
-  - 例如在设计合同创建页面时，应该命名为`ContractCreatePage.vue`
+  - 例如在设计资源新建弹窗时，可以命名为 `ResourceCreateDialog.vue`
+  - 例如在设计资源创建页面时，可以命名为 `ResourceCreatePage.vue`
 
 ## 目录组织规范
 
@@ -40,9 +40,9 @@
 
 ### 模块目录
 
-文件夹命名使用 `kebab-case`，目录结构如下。以下以 `contract/` 业务域为例：
+文件夹命名使用 `kebab-case`，目录结构如下。以下以 `resource/` 业务域为例：
 
-- `contract/`：合同模块总文件夹
+- `resource/`：资源模块总文件夹
   - `components/`：该业务模块内部组件
   - `hooks/`：该业务模块内部 hooks
   - `utils/`：该业务模块内部工具
@@ -55,14 +55,14 @@
 ### 组件目录
 
 当一个组件引用资源过多时，单独使用文件夹管理，并通过 `index.ts` 统一导出。
-文件夹命名使用 `kebab-case`，例如要设计合同编辑器组件，目录结构如下：
+文件夹命名使用 `kebab-case`，例如要设计资源编辑器组件，目录结构如下：
 
-- `contract-editor/`：总文件夹
+- `resource-editor/`：总文件夹
   - `components/`：存放内部使用的组件
   - `hooks/`：内部使用的组合式函数
   - `utils/`：内部使用的工具
-  - `ContractEditor.vue`：合同编辑器主组件
-  - `ContractEditorOtherComponent.vue`：其他可导出的子组件
+  - `ResourceEditor.vue`：资源编辑器主组件
+  - `ResourceEditorOtherComponent.vue`：其他可导出的子组件
   - `types.ts`：存放类型信息
   - `index.ts` 入口文件
 
@@ -70,9 +70,9 @@
 
 ```typescript
 import {
-  ContractEditor,
-  ContractEditorOtherComponent,
-} from "./contract-editor";
+  ResourceEditor,
+  ResourceEditorOtherComponent,
+} from "./resource-editor";
 ```
 
 ### 组合式函数目录

@@ -37,11 +37,12 @@
 - 涉及业务页面、表单、表格、弹窗、抽屉时，阅读[业务代码开发规范](./code-standards/business-coding-style.md)。
 - 涉及新增目录、模块边界、共享能力、跨模块复用时，阅读[代码架构规范](./code-standards/code-architecture.md)。
 - 涉及组件拆分、wrapper、hooks、抽象边界时，阅读[组件与 Hooks 规范](./code-standards/component-and-hooks.md)。
+- 涉及测试设计、测试覆盖、断言质量、回归测试时，阅读[测试规范](./code-standards/testing.md)。
 - 涉及重构时，阅读[代码重构规范](./code-standards/code-refactoring.md)，并将改动限制在当前任务影响范围内。
 
 ### 项目级规范
 
 - 涉及技术栈、workspace、包目录、包依赖关系时，阅读[工作区规范](./project-standards/workspace.md)。
 - 涉及测试、构建、检查、文档站点命令时，阅读[命令规范](./project-standards/commands.md)。
-- 涉及包边界、公共 API、包导出、新增包时，阅读[包开发规范](./project-standards/package-development.md)。
+- 涉及包边界、公共 API、包导出、新增包、依赖策略时，阅读[包开发规范](./project-standards/package-development.md)。
 - 涉及 README、docs、changeset、发版时，阅读[文档与发布规范](./project-standards/documentation-and-release.md)。
