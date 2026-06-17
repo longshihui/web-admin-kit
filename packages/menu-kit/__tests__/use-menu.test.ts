@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { shallowRef } from "vue";
 
-import { useMenu } from "./use-menu";
-import type { AppMenuItem } from "./types";
+import { useMenu } from "../src/use-menu";
+import type { AppMenuItem } from "../src/types";
 
 describe("use-menu", () => {
   it("会根据声明的菜单树生成响应式菜单变量", () => {

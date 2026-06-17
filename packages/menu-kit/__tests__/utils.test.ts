@@ -5,8 +5,8 @@ import {
   findMenuByKey,
   flattenMenus,
   getMenuParents,
-} from "./utils";
-import type { BuiltMenuItem } from "./types";
+} from "../src/utils";
+import type { BuiltMenuItem } from "../src/types";
 
 const menus: BuiltMenuItem[] = [
   {

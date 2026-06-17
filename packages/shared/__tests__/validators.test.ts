@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
-import { ID_TYPES } from '../constants/id-type'
-import { isValidIdNumber, isValidPhoneNumber } from './validators'
+import { ID_TYPES } from '../src/constants/id-type'
+import { isValidIdNumber, isValidPhoneNumber } from '../src/utils/validators'
 
 describe('validators', () => {
   it('validates mainland phone numbers by default', () => {

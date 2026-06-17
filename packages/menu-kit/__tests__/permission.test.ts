@@ -4,7 +4,7 @@ import {
   createMenuBuildContext,
   hasMenuPermission,
   isMenuVisible,
-} from "./permission";
+} from "../src/permission";
 
 describe("permission", () => {
   it("hasPermission 未配置时默认放行，配置后使用函数返回值", () => {

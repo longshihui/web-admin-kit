@@ -1,14 +1,20 @@
 import { defineConfig } from 'vitest/config'
 
+import {
+  workspaceCoverageExclude,
+  workspaceCoverageInclude,
+  workspaceTestInclude,
+} from './vitest.shared'
+
 export default defineConfig({
   test: {
     environment: 'node',
-    include: ['packages/*/src/**/*.test.ts'],
+    include: workspaceTestInclude,
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html'],
-      include: ['packages/*/src/**/*.ts'],
-      exclude: ['packages/*/src/**/*.test.ts']
-    }
-  }
+      include: workspaceCoverageInclude,
+      exclude: workspaceCoverageExclude,
+    },
+  },
 })

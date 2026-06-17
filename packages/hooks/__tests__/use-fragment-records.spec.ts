@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { useFragmentRecords } from './use-fragment-records'
+import { useFragmentRecords } from '../src/use-fragment-records/use-fragment-records'
 
 describe('use-fragment-records', () => {
   describe('添加', () => {

@@ -1,9 +1,9 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import type { Router } from "vue-router";
 
-import { navigateByMenu } from "./navigator";
-import { MENU_TARGET_TYPES } from "./types";
-import type { BuiltMenuItem } from "./types";
+import { navigateByMenu } from "../src/navigator";
+import { MENU_TARGET_TYPES } from "../src/types";
+import type { BuiltMenuItem } from "../src/types";
 
 function createRouter() {
   return {

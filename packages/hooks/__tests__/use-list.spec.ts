@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from 'vitest'
 import { nextTick } from 'vue'
 
-import { withSetup } from '../../test-utils/with-setup'
+import { withSetup } from './test-utils/with-setup'
 
-import { useList } from '../src/use-list'
+import { useList } from '../src/use-list/src/use-list'
 
 describe('use-list', () => {
   it('当变更pageNum后, fetchData调用一次', async () => {

@@ -1,10 +1,11 @@
 import { describe, expect, it } from 'vitest'
 
-import { useAwaitablePopup } from './use-awaitable-popup'
+import { withSetup } from './test-utils/with-setup'
+import { useAwaitablePopup } from '../src/use-awaitable-popup/use-awaitable-popup'
 
 describe('use-awaitable-popup', () => {
   it('调用commit方法后, 能结束open的等待, 并获取到提交的数据', async () => {
-    const { open, commit } = useAwaitablePopup<string>()
+    const [{ open, commit }] = await withSetup(() => useAwaitablePopup<string>())
 
     setTimeout(() => {
       commit('test')
@@ -17,7 +18,7 @@ describe('use-awaitable-popup', () => {
   })
 
   it('调用cancel方法后, 能结束open的等待, 结果isCancel为true', async () => {
-    const { open, cancel } = useAwaitablePopup<string>()
+    const [{ open, cancel }] = await withSetup(() => useAwaitablePopup<string>())
 
     setTimeout(() => {
       cancel()

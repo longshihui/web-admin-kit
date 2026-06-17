@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
 
-import { MENU_TARGET_TYPES } from "./types";
-import { validateMenus } from "./validate";
-import type { AppMenuItem } from "./types";
+import { MENU_TARGET_TYPES } from "../src/types";
+import { validateMenus } from "../src/validate";
+import type { AppMenuItem } from "../src/types";
 
 describe("validate", () => {
   it("会检查重复 key、无效外链、无意义节点和不存在的路由引用", () => {

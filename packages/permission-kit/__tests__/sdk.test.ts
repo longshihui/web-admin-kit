@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
 
-import { PermissionSDK } from './sdk'
+import { PermissionSDK } from '../src/sdk'
 
 describe('PermissionSDK', () => {
   it('hydrates permission codes from the async fetcher', async () => {

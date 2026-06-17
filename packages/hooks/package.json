@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.12",
-    "vitest": "^4.1.9",
+    "vitest": "^2.1.9",
     "vue": "^3.4.35"
   }
 }

@@ -4,8 +4,8 @@ import {
   getActiveMenu,
   getActiveMenuKey,
   getExpandedMenuKeys,
-} from "./active";
-import type { BuiltMenuItem } from "./types";
+} from "../src/active";
+import type { BuiltMenuItem } from "../src/types";
 
 describe("active", () => {
   it("会基于菜单配置中的 isActive 匹配当前激活菜单", () => {

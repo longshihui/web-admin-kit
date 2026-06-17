@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
-import { PermissionCalculateMode } from './constants'
-import { definePermissionCalculator, normalizeCalculator, normalizeCodes } from './helpers'
+import { PermissionCalculateMode } from '../src/constants'
+import { definePermissionCalculator, normalizeCalculator, normalizeCodes } from '../src/helpers'
 
 describe('permission helpers', () => {
   it('normalizes a single permission code to an array', () => {

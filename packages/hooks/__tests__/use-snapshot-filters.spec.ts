@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { nextTick, ref } from 'vue'
 
-import { useSnapshotFilters } from '../src/use-snapshot-filters'
+import { useSnapshotFilters } from '../src/use-snapshot-filters/src/use-snapshot-filters'
 
 beforeEach(() => {
   vi.resetAllMocks()

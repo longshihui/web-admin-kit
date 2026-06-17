@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { h } from "vue";
 
-import { buildMenus } from "./builder";
-import type { AppMenuItem } from "./types";
+import { buildMenus } from "../src/builder";
+import type { AppMenuItem } from "../src/types";
 
 describe("builder", () => {
   it("未声明 key 时会自动生成 UUID，并在同一个菜单对象上保持稳定", () => {

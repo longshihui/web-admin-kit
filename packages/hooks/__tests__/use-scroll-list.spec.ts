@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { nextTick } from "vue";
 
-import { withSetup } from "../../test-utils/with-setup";
+import { withSetup } from "./test-utils/with-setup";
 
-import { useScrollList } from "../src/use-scroll-list";
+import { useScrollList } from "../src/use-scroll-list/src/use-scroll-list";
 
 describe("use-scroll-list", () => {
   it("能正确加载出数据", async () => {
