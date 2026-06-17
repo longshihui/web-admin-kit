@@ -2,7 +2,7 @@
 
 <!-- markdownlint-disable MD033 -->
 <script setup lang="ts">
-import { data as packageDocs } from '../.vitepress/package-docs.data'
+import { data as packageDocs } from '../../.vitepress/package-docs.data'
 </script>
 
 项目中的每个包都在自己的 `docs/` 目录维护文档，根级 `VitePress` 负责统一聚合路由、侧边栏和搜索索引。

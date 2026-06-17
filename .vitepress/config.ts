@@ -4,7 +4,10 @@ import { listPackageDocs } from './package-docs'
 const packageDocs = listPackageDocs()
 const docsBase = process.env.DOCS_BASE ?? '/'
 const staticRewrites = {
-  'packages/README.md': 'packages/index.md'
+  'docs/index.md': 'index.md',
+  'docs/guide.md': 'guide.md',
+  'docs/release.md': 'release.md',
+  'docs/packages/README.md': 'packages/index.md'
 }
 
 const packageRewrites = packageDocs.reduce<Record<string, string>>((rewrites, pkg) => {
@@ -58,6 +61,7 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
+      { text: '项目说明', link: '/guide' },
       { text: '包文档', link: '/packages/' },
       { text: '发版说明', link: '/release' }
     ],
@@ -66,8 +70,10 @@ export default defineConfig({
         {
           text: '开始使用',
           items: [
-            { text: '工作区说明', link: '/' },
-            { text: '发版说明', link: '/release' }
+            { text: '首页', link: '/' },
+            { text: '项目说明', link: '/guide' },
+            { text: '发版说明', link: '/release' },
+            { text: '变更日志', link: '/changelog' }
           ]
         }
       ],

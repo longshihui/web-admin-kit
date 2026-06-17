@@ -7,11 +7,16 @@
 
 ## 命名规范
 
-- 文件命名使用 `PascalCase.vue`；
-- 文件夹命名使用 `kebab-case`；
+### 命名规则
+
+- 组件文件命名使用 `PascalCase`命名法，例如 `Button.vue`；
+- 文件夹命名使用 `kebab-case`, 例如 `components-button`；
 - 模板中的组件名和事件名使用 `kebab-case`。
-- 命名优先使用业务语义，避免 `Common`、`Wrapper`、`Panel`、`MainContent`、`IndexTab` 等空泛命名。
-- 命名要直观，让人看到文件名就知道是做什么的
+
+### 用词限定
+
+- 命名用词优先使用业务语义，避免 `Common`、`Wrapper`、`Panel`、`MainContent`、`IndexTab` 等空泛命名。
+- 命名要直观，使得看到文件名就知道是做什么的
   - 例如在设计一个合同新建组件的弹窗时，应该命名为`ContractCreateDialog.vue`
   - 例如在设计合同创建页面时，应该命名为`ContractCreatePage.vue`
 
@@ -34,7 +39,7 @@
 │   └── utils 全局工具
 ```
 
-### 业务模块目录
+### 模块目录
 
 文件夹命名使用 `kebab-case`，目录结构如下：
 

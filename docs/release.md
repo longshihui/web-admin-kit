@@ -149,4 +149,3 @@ pnpm release
 - 不要让 `release-it` 直接管理工作区包版本
 - 不要使用 `release-it` 执行 npm 发布，npm 发布应由 `changeset publish` 负责
 - git tag 表示的是仓库级发布，不一定对应单个包的某一个版本
-
