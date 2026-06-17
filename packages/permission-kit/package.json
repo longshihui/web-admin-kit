@@ -1,5 +1,5 @@
 {
-  "name": "@lsh/permission-kit",
+  "name": "@colorless/permission-kit",
   "version": "0.0.0",
   "description": "Permission SDK, route guards, directives, and render helpers for Vue admin products.",
   "type": "module",

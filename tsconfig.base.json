@@ -16,7 +16,7 @@
     "isolatedModules": true,
     "baseUrl": ".",
     "paths": {
-      "@lsh/*": ["packages/*/src/index.ts", "packages/*/src"]
+      "@colorless/*": ["packages/*/src/index.ts", "packages/*/src"]
     }
   }
 }

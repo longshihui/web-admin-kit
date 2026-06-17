@@ -9,13 +9,13 @@
 首先，先确保已经安装相关的包，如果已经安装，则跳过这一步
 
 ```bash
-pnpm add @lsh/hooks
+pnpm add @colorless/hooks
 ```
 
 引入该组合式函数
 
 ```ts
-import { useList } from '@lsh/hooks'
+import { useList } from '@colorless/hooks'
 ```
 
 在vue组件中使用该组合式函数
@@ -26,7 +26,7 @@ import { useList } from '@lsh/hooks'
 </template>
 
 <script setup lang="ts">
-  import { useList } from '@lsh/hooks'
+  import { useList } from '@colorless/hooks'
 
   interface Record {
     name: string

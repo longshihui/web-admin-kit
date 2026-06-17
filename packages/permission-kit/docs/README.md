@@ -1,6 +1,6 @@
-# @lsh/permission-kit
+# @colorless/permission-kit
 
-`@lsh/permission-kit` 用于统一中后台项目的权限表达与消费方式，覆盖权限点存储、权限判断、组件渲染、DOM 指令和路由守卫。
+`@colorless/permission-kit` 用于统一中后台项目的权限表达与消费方式，覆盖权限点存储、权限判断、组件渲染、DOM 指令和路由守卫。
 
 ## 适用场景
 
@@ -12,7 +12,7 @@
 ## 安装
 
 ```bash
-pnpm add @lsh/permission-kit
+pnpm add @colorless/permission-kit
 ```
 
 ## 文档导航

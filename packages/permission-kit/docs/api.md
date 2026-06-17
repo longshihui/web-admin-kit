@@ -2,7 +2,7 @@
 
 ## 导出总览
 
-`@lsh/permission-kit` 导出权限计算器、权限 SDK、组合式 API、模板切面、指令工厂和路由守卫。
+`@colorless/permission-kit` 导出权限计算器、权限 SDK、组合式 API、模板切面、指令工厂和路由守卫。
 
 ```ts
 import {
@@ -15,7 +15,7 @@ import {
   usePermission,
   usePermissionDirectives,
   usePermissionSDK,
-} from '@lsh/permission-kit'
+} from '@colorless/permission-kit'
 ```
 
 ## 常量

@@ -11,8 +11,8 @@ describe('build-release-notes', () => {
       parseChangesetFile(
         'alpha.md',
         `---
-"@lsh/hooks": minor
-"@lsh/shared": patch
+"@colorless/hooks": minor
+"@colorless/shared": patch
 ---
 
 新增 hooks 能力，并补充 shared 辅助方法。
@@ -21,7 +21,7 @@ describe('build-release-notes', () => {
       parseChangesetFile(
         'beta.md',
         `---
-"@lsh/hooks": patch
+"@colorless/hooks": patch
 ---
 
 修复 hooks 边界场景。
@@ -32,9 +32,9 @@ describe('build-release-notes', () => {
     const releaseNotes = renderReleaseNotes('web-admin-kit', changesets)
 
     expect(releaseNotes).toContain('# Web Admin Kit Release')
-    expect(releaseNotes).toContain('### `@lsh/hooks`')
+    expect(releaseNotes).toContain('### `@colorless/hooks`')
     expect(releaseNotes).toContain('- `minor`: 新增 hooks 能力，并补充 shared 辅助方法。')
     expect(releaseNotes).toContain('- `patch`: 修复 hooks 边界场景。')
-    expect(releaseNotes).toContain('### `@lsh/shared`')
+    expect(releaseNotes).toContain('### `@colorless/shared`')
   })
 })

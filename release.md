@@ -57,8 +57,8 @@ Example:
 
 ```md
 ---
-"@lsh/hooks": minor
-"@lsh/shared": patch
+"@colorless/hooks": minor
+"@colorless/shared": patch
 ---
 
 新增 hooks 能力，并补充 shared 辅助方法。

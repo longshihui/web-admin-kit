@@ -7,13 +7,13 @@
 首先，先确保已经安装相关的包，如果已经安装，则跳过这一步
 
 ```bash
-pnpm add @lsh/hooks
+pnpm add @colorless/hooks
 ```
 
 引入该组合式函数
 
 ```ts
-import { useScrollList } from '@lsh/hooks'
+import { useScrollList } from '@colorless/hooks'
 ```
 
 在vue组件中使用该组合式函数
@@ -24,7 +24,7 @@ import { useScrollList } from '@lsh/hooks'
 </template>
 
 <script setup lang="ts">
-  import { useScrollList } from '@lsh/hooks'
+  import { useScrollList } from '@colorless/hooks'
 
   interface Record {
     name: string
@@ -86,7 +86,7 @@ import { useScrollList } from '@lsh/hooks'
 ### UseScrollListHookOptions
 
 ```typescript
-import type { UseListHookOptions } from '@lsh/hooks'
+import type { UseListHookOptions } from '@colorless/hooks'
 /**
  * useScrollList入参
  */

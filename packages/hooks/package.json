@@ -1,5 +1,5 @@
 {
-  "name": "@lsh/hooks",
+  "name": "@colorless/hooks",
   "version": "0.0.0",
   "description": "Reusable Vue composition utilities for admin products.",
   "type": "module",

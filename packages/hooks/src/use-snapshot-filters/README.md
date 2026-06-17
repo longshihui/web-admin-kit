@@ -15,13 +15,13 @@
 首先，先确保已经安装相关的包，如果已经安装，则跳过这一步
 
 ```bash
-pnpm add @lsh/hooks
+pnpm add @colorless/hooks
 ```
 
 引入该组合式函数
 
 ```ts
-import { useSnapshotFilters } from '@lsh/hooks'
+import { useSnapshotFilters } from '@colorless/hooks'
 ```
 
 在vue组件中使用该组合式函数
@@ -35,7 +35,7 @@ import { useSnapshotFilters } from '@lsh/hooks'
 <script setup lang="ts">
   import { ref } from 'vue'
 
-  import { useSnapshotFilters } from '@lsh/hooks'
+  import { useSnapshotFilters } from '@colorless/hooks'
 
   const filters = ref<{
     name: string

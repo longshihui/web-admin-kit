@@ -1,5 +1,5 @@
 {
-  "name": "@lsh/menu-kit",
+  "name": "@colorless/menu-kit",
   "version": "0.0.0",
   "description": "Reactive menu declaration, navigation, and active state helpers for web admin products.",
   "type": "module",

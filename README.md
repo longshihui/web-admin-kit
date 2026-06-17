@@ -5,7 +5,7 @@
 ## 工作区约定
 
 - 业务包统一放在 `packages/*`。
-- 包名统一使用 `@lsh/*` 作用域。
+- 包名统一使用 `@colorless/*` 作用域。
 - 每个包的文档统一放在 `packages/<name>/docs/`。
 - 每个包使用 `docs/README.md` 作为文档入口。
 - 每个包使用 `docs/config.json` 声明文档结构、标题和顺序。

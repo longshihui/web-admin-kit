@@ -29,9 +29,9 @@ export default {
   ],
   scopes: [
     { value: 'repo', name: 'repo: workspace-wide changes' },
-    { value: 'core', name: 'core: @lsh/core package' },
-    { value: 'sdk', name: 'sdk: @lsh/sdk package' },
-    { value: 'menu-kit', name: 'menu-kit: @lsh/menu-kit package' },
+    { value: 'core', name: 'core: @colorless/core package' },
+    { value: 'sdk', name: 'sdk: @colorless/sdk package' },
+    { value: 'menu-kit', name: 'menu-kit: @colorless/menu-kit package' },
     { value: 'docs', name: 'docs: documentation site or package docs' },
     { value: 'release', name: 'release: release and changelog workflow' },
     { value: 'deps', name: 'deps: dependency updates' },
