@@ -40,13 +40,18 @@
 ## 禁止事项
 
 - 禁止在需求未要求时重构无关模块。
-- 禁止为了“更优雅”新增不必要抽象。
-- 禁止新增纯透传 wrapper。
-- 禁止新增伪 hook 或大而全 hook。
 - 禁止随意新增依赖；新增依赖前必须说明理由。
-- 禁止跨包引用其他包的私有实现。
 - 禁止只改实现不补测试。
+- 禁止为了通过测试而删除、跳过或削弱已有测试。
 - 禁止修改生成产物或发布产物来规避构建问题。
+
+## 规范阅读路由
+
+- 涉及 TypeScript、Vue、CSS、BEM、注释时，阅读[代码规范](./code-standards/coding-style.md)。
+- 涉及业务页面、表单、表格、弹窗、抽屉时，阅读[业务代码开发规范](./code-standards/business-coding-style.md)。
+- 涉及新增目录、模块边界、共享能力、跨模块复用时，阅读[代码架构规范](./code-standards/code-architecture.md)。
+- 涉及组件拆分、wrapper、hooks、抽象边界时，阅读[组件与 Hooks 规范](./code-standards/component-and-hooks.md)。
+- 涉及重构时，阅读[代码重构规范](./code-standards/code-refactoring.md)，并将改动限制在当前任务影响范围内。
 
 ## 验证命令
 
@@ -64,9 +69,3 @@
 - 公共 API、行为或使用方式变化时，必须更新对应包的 README 或 docs。
 - 影响包发布内容时，需要评估是否添加 changeset。
 - 纯测试、内部重构且不影响发布产物时，可以不添加 changeset。
-
-## 代码规范
-
-- 使用 TypeScript、Vue、CSS 等技术时，严格遵守[代码规范](./code-standards/coding-style.md)。
-- 开发业务代码时，严格遵守[业务代码开发规范](./code-standards/business-coding-style.md)。
-- 组织代码结构和目录时，严格遵守[代码架构规范](./code-standards/code-architecture.md)。
