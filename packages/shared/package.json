@@ -17,7 +17,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
+    "build": "vite build",
     "test": "vitest run --config vitest.config.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
@@ -26,6 +26,8 @@
     "nanoid": "^5.0.7"
   },
   "devDependencies": {
+    "vite-plugin-dts": "^5.0.2",
+    "vite": "^8.0.16",
     "vitest": "^2.1.9"
   }
 }

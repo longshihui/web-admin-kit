@@ -2,6 +2,7 @@ import { defineConfig, type DefaultTheme } from 'vitepress'
 import { listPackageDocs } from './package-docs'
 
 const packageDocs = listPackageDocs()
+const docsBase = process.env.DOCS_BASE ?? '/'
 
 const packageRewrites = packageDocs.reduce<Record<string, string>>((rewrites, pkg) => {
   for (const page of pkg.pages) {
@@ -22,6 +23,7 @@ const packageSidebarItems: DefaultTheme.SidebarItem[] = packageDocs.map((pkg) =>
 }))
 
 export default defineConfig({
+  base: docsBase,
   title: 'Web Admin Kit',
   description: 'Framework-agnostic TypeScript utilities and SDKs for web admin products.',
   lang: 'zh-CN',
