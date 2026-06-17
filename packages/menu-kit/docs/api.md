@@ -2,7 +2,7 @@
 
 ## 导出总览
 
-`@colorless/menu-kit` 导出菜单类型、响应式菜单生成、菜单跳转、高亮计算、树工具和配置校验能力。
+`@lsh/menu-kit` 导出菜单类型、响应式菜单生成、菜单跳转、高亮计算、树工具和配置校验能力。
 
 ```ts
 import {
@@ -20,7 +20,7 @@ import {
   navigateByMenu,
   useMenu,
   validateMenus,
-} from "@colorless/menu-kit";
+} from "@lsh/menu-kit";
 ```
 
 ## 常量

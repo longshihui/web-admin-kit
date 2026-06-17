@@ -1,6 +1,6 @@
-# @colorless/hooks
+# @lsh/hooks
 
-`@colorless/hooks` 用于沉淀 Vue 3 项目中可复用的组合式逻辑，覆盖分页列表、滚动加载、筛选快照、片段记录和可等待弹层等典型场景。
+`@lsh/hooks` 用于沉淀 Vue 3 项目中可复用的组合式逻辑，覆盖分页列表、滚动加载、筛选快照、片段记录和可等待弹层等典型场景。
 
 ## 适用场景
 
@@ -12,7 +12,7 @@
 ## 安装
 
 ```bash
-pnpm add @colorless/hooks
+pnpm add @lsh/hooks
 ```
 
 ## 文档导航

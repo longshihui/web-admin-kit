@@ -1,4 +1,4 @@
-# useSnapshotFilters
+# useSnapshotFilters 说明
 
 快照筛选项，通常用于处理一次性提交所有筛选项变更的场景。
 
@@ -8,23 +8,21 @@
 
 支持**泛型**
 
-
-
 ## 如何使用
 
 首先，先确保已经安装相关的包，如果已经安装，则跳过这一步
 
 ```bash
-pnpm add @colorless/hooks
+pnpm add @lsh/hooks
 ```
 
 引入该组合式函数
 
 ```ts
-import { useSnapshotFilters } from '@colorless/hooks'
+import { useSnapshotFilters } from '@lsh/hooks'
 ```
 
-在vue组件中使用该组合式函数
+在 Vue 组件中使用该组合式函数
 
 ```html
 <template>
@@ -35,7 +33,7 @@ import { useSnapshotFilters } from '@colorless/hooks'
 <script setup lang="ts">
   import { ref } from 'vue'
 
-  import { useSnapshotFilters } from '@colorless/hooks'
+  import { useSnapshotFilters } from '@lsh/hooks'
 
   const filters = ref<{
     name: string
@@ -51,28 +49,26 @@ import { useSnapshotFilters } from '@colorless/hooks'
 </script>
 ```
 
-
-
 ## API
 
 ### 入参
 
-| 参数名        | 类型                           | 是否可为空 | 默认值                  | 说明                                                         |
-| ------------- | ------------------------------ | ---------- | ----------------------- | ------------------------------------------------------------ |
-| filters       | `Ref<F>`                       | 否         | -                       | 筛选项数据                                                   |
-| defaultValues | `{[K in keyof F]: () => F[K]}` | 是         | filters相关字段的值克隆 | 默认值，重置时会被使用，当没有指定时，将会根据参数filters传入时的值生成快照，当做重置时的默认值 |
+<!-- markdownlint-disable MD060 -->
+| 参数名        | 类型                           | 是否可为空 | 默认值                  | 说明                                                                                               |
+| :------------ | :----------------------------- | :--------- | :---------------------- | :------------------------------------------------------------------------------------------------- |
+| filters       | `Ref<F>`                       | 否         | -                       | 筛选项数据                                                                                         |
+| defaultValues | `{[K in keyof F]: () => F[K]}` | 是         | filters 相关字段的值克隆 | 默认值，重置时会被使用；当没有指定时，会根据参数 `filters` 传入时的值生成快照，作为重置时的默认值 |
 
 ### 出参
 
-| 变量名       | 类型         | 说明                                                         |
-| ------------ | ------------ | ------------------------------------------------------------ |
-| filters      | `Ref<F>`     | 已提交的筛选项                                               |
-| cacheFilters | `Ref<F>`     | 缓存的筛选项，页面表单组件使用该数据结构                     |
-| reset        | `() => void` | 重置筛选项为默认值，会将cacheFilters和filters的值变更为默认值 |
-| commit       | `() => void` | 提交变更，提交后filters的值将会和cacheFilters一致，但不同源  |
-| restore      | `() => void` | 取消cacheFilters的变更                                       |
-
-
+| 变量名       | 类型         | 说明                                                             |
+| :----------- | :----------- | :--------------------------------------------------------------- |
+| filters      | `Ref<F>`     | 已提交的筛选项                                                   |
+| cacheFilters | `Ref<F>`     | 缓存的筛选项，页面表单组件使用该数据结构                         |
+| reset        | `() => void` | 重置筛选项为默认值，会将 `cacheFilters` 和 `filters` 的值恢复为默认值 |
+| commit       | `() => void` | 提交变更，提交后 `filters` 的值会和 `cacheFilters` 一致，但不同源 |
+| restore      | `() => void` | 取消 `cacheFilters` 的变更                                       |
+<!-- markdownlint-enable MD060 -->
 
 ## 类型定义
 

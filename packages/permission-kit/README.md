@@ -1,4 +1,4 @@
-# `@colorless/permission-kit`
+# `@lsh/permission-kit`
 
 共享权限能力包，负责沉淀项目间可复用的“权限点存储、权限判断、路由守卫、渲染切面与 DOM 指令”能力。
 
@@ -9,7 +9,7 @@
 ### 创建并注入权限 SDK
 
 ```ts
-import { PermissionSDK } from '@colorless/permission-kit'
+import { PermissionSDK } from '@lsh/permission-kit'
 
 export const permissionSdk = new PermissionSDK({
   fetchResourceList: async () => {
@@ -38,7 +38,7 @@ app.mount('#app')
 
 ```vue
 <script setup lang="ts">
-import { PermissionCalculateMode, usePermission } from '@colorless/permission-kit'
+import { PermissionCalculateMode, usePermission } from '@lsh/permission-kit'
 
 const { status, whenGranted } = usePermission({
   codes: ['contract:view', 'contract:list'],
@@ -63,7 +63,7 @@ import {
   PermissionCalculateMode,
   PermissionRender,
   usePermissionDirectives,
-} from '@colorless/permission-kit'
+} from '@lsh/permission-kit'
 
 const { vPermission } = usePermissionDirectives()
 </script>
@@ -88,7 +88,7 @@ const { vPermission } = usePermissionDirectives()
 ### 创建路由权限守卫
 
 ```ts
-import { createPermissionRouterGuard } from '@colorless/permission-kit'
+import { createPermissionRouterGuard } from '@lsh/permission-kit'
 
 router.beforeEach(
   createPermissionRouterGuard(permissionSdk, {

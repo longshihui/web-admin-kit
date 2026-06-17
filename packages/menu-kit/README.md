@@ -1,4 +1,4 @@
-# `@colorless/menu-kit`
+# `@lsh/menu-kit`
 
 共享菜单能力包，负责沉淀项目间可复用的“菜单配置、响应式构建、导航解析和高亮计算”能力。
 
@@ -9,8 +9,8 @@
 ### 定义菜单配置
 
 ```ts
-import { MENU_TARGET_TYPES } from "@colorless/menu-kit";
-import type { AppMenuItem } from "@colorless/menu-kit";
+import { MENU_TARGET_TYPES } from "@lsh/menu-kit";
+import type { AppMenuItem } from "@lsh/menu-kit";
 import { h } from "vue";
 
 import ContractIcon from "@/components/icons/ContractIcon.vue";
@@ -48,7 +48,7 @@ export const contractMenus: AppMenuItem[] = [
 ### 生成响应式菜单
 
 ```ts
-import { useMenu } from "@colorless/menu-kit";
+import { useMenu } from "@lsh/menu-kit";
 
 const { activeMenu, expandedMenuKeys, menus } = useMenu(contractMenus, {
   route: () => ({
@@ -63,7 +63,7 @@ const { activeMenu, expandedMenuKeys, menus } = useMenu(contractMenus, {
 ### 菜单跳转
 
 ```ts
-import { navigateByMenu } from "@colorless/menu-kit";
+import { navigateByMenu } from "@lsh/menu-kit";
 
 await navigateByMenu(menu, router, {
   actionRegistry: {

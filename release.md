@@ -1,35 +1,35 @@
-# Release Guide
+# 发版说明
 
-This repository uses a hybrid release flow:
+本仓库使用混合发版流程：
 
-- `changesets` manages independent package versions and package-level changelogs
-- `release-it` creates the repository release commit, git tag, and GitHub Release
-- GitHub Actions publishes changed packages to npm after a `v*` tag is pushed
+- `changesets` 负责管理各个包的独立版本和包级 `CHANGELOG.md`
+- `release-it` 负责创建仓库级发布提交、git tag 和 GitHub Release
+- 推送 `v*` 标签后，GitHub Actions 负责把变更包发布到 npm
 
-## Responsibilities
+## 职责划分
 
 ### Changesets
 
-- Source of truth for release intent lives in `.changeset/*.md`
-- `pnpm changeset` creates a pending release entry
-- `pnpm release:version` runs `changeset version`
-- Each changed package gets its own `CHANGELOG.md`
+- 发布意图的唯一来源是 `.changeset/*.md`
+- `pnpm changeset` 用于创建待发布条目
+- `pnpm release:version` 会执行 `changeset version`
+- 每个发生变更的包都会生成自己的 `CHANGELOG.md`
 
 ### Release-It
 
-- `pnpm release` runs the repository release flow
-- `pnpm release:notes` builds the repository-level release notes bundle
-- `release-it` creates the release commit
-- `release-it` creates the `v*` git tag
-- `release-it` creates the GitHub Release
+- `pnpm release` 用于执行仓库级发版流程
+- `pnpm release:notes` 用于构建仓库级 Release Notes 汇总
+- `release-it` 负责创建发布提交
+- `release-it` 负责创建 `v*` git tag
+- `release-it` 负责创建 GitHub Release
 
 ### GitHub Actions
 
-- `.github/workflows/publish-npm.yml` listens to `v*` tags
-- CI runs `pnpm publish:ci`
-- `changeset publish` only publishes packages with version changes
+- `.github/workflows/publish-npm.yml` 监听 `v*` 标签
+- CI 会执行 `pnpm publish:ci`
+- `changeset publish` 只会发布发生版本变更的包
 
-## Release Scripts
+## 发版脚本
 
 ```bash
 pnpm changeset
@@ -41,19 +41,19 @@ pnpm release
 pnpm publish:ci
 ```
 
-## Daily Workflow
+## 日常流程
 
-### 1. Add a changeset
+### 1. 新增 changeset
 
-Run:
+执行：
 
 ```bash
 pnpm changeset
 ```
 
-Pick the affected packages, choose `patch` / `minor` / `major`, and write a short summary.
+选择受影响的包，指定 `patch` / `minor` / `major`，并填写简短说明。
 
-Example:
+示例：
 
 ```md
 ---
@@ -64,88 +64,89 @@ Example:
 新增 hooks 能力，并补充 shared 辅助方法。
 ```
 
-### 2. Review pending release scope
+### 2. 检查待发布范围
 
-Run:
+执行：
 
 ```bash
 pnpm changeset:status
 pnpm release:notes:print
 ```
 
-- `pnpm changeset:status` shows which packages will be bumped
-- `pnpm release:notes:print` shows the repository-level GitHub Release bundle
+- `pnpm changeset:status` 用于查看哪些包会升级版本
+- `pnpm release:notes:print` 用于预览仓库级 GitHub Release 内容
 
-## Release Flow
+## 发版流程
 
-### 1. Start the release
+### 1. 开始发版
 
-Run:
+执行：
 
 ```bash
 pnpm release
 ```
 
-The release flow performs these steps:
+发版流程会依次执行以下步骤：
 
 1. `pnpm release:notes`
 2. `pnpm check:push`
 3. `pnpm build`
 4. `pnpm docs:build`
 5. `pnpm release:version`
-6. create release commit
-7. create `v*` git tag
-8. push commit and tag
-9. create GitHub Release
+6. 创建发布提交
+7. 创建 `v*` git tag
+8. 推送提交和标签
+9. 创建 GitHub Release
 
-### 2. What gets generated
+### 2. 产出内容
 
-- Repository release notes bundle: `.git/.release-notes.md`
-- Package version bumps: `packages/*/package.json`
-- Package changelogs: `packages/*/CHANGELOG.md`
-- Repository release tag: `v*`
+- 仓库级 Release Notes 文件：`.git/.release-notes.md`
+- 包版本变更：`packages/*/package.json`
+- 包级变更日志：`packages/*/CHANGELOG.md`
+- 仓库级发布标签：`v*`
 
-### 3. What happens in CI
+### 3. CI 中会发生什么
 
-After the tag is pushed:
+标签推送后：
 
-- `publish-npm.yml` publishes changed packages to npm
-- `deploy-pages.yml` rebuilds and deploys the documentation site
+- `publish-npm.yml` 会把变更包发布到 npm
+- `deploy-pages.yml` 会重新构建并部署文档站点
 
-## Release Notes Model
+## Release Notes 模型
 
-This repository keeps two levels of change records:
+本仓库维护两层变更记录：
 
-- Package level: each package has its own `CHANGELOG.md`
-- Repository level: GitHub Release contains an aggregated summary for all packages in the release
+- 包级：每个包各自维护 `CHANGELOG.md`
+- 仓库级：GitHub Release 汇总本次发布涉及的所有包变更
 
-The repository-level release notes are generated from pending `.changeset/*.md` files before `changeset version` runs.
+仓库级 Release Notes 会在执行 `changeset version` 之前，根据待发布的 `.changeset/*.md` 文件聚合生成。
 
-This keeps package changelogs and GitHub Release notes aligned while preserving independent package versions.
+这样既能保持包级 changelog 与 GitHub Release 内容一致，又能保留各包独立版本管理能力。
 
-## Recommended Commands
+## 常用命令
 
-### Preview a release
+### 预览一次发布
 
 ```bash
 pnpm changeset:status
 pnpm release:notes:print
 ```
 
-### Apply versions without tagging
+### 只应用版本号，不打标签
 
 ```bash
 pnpm release:version
 ```
 
-### Run the full release flow
+### 执行完整发版流程
 
 ```bash
 pnpm release
 ```
 
-## Notes
+## 注意事项
 
-- Do not let `release-it` manage workspace package versions
-- Do not publish with `release-it`; npm publish is handled by `changeset publish`
-- Git tags represent repository releases, not necessarily a single package version
+- 不要让 `release-it` 直接管理工作区包版本
+- 不要使用 `release-it` 执行 npm 发布，npm 发布应由 `changeset publish` 负责
+- git tag 表示的是仓库级发布，不一定对应单个包的某一个版本
+

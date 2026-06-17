@@ -1,11 +1,11 @@
-# `@colorless/shared`
+# `@lsh/shared`
 
 共享基础能力包，负责沉淀项目间通用的类型、常量、正则表达式和校验工具。
 
 ## 快速开始
 
 ```bash
-pnpm add @colorless/shared
+pnpm add @lsh/shared
 ```
 
 ### 使用常量与工具
@@ -19,7 +19,7 @@ import {
   isValidPhoneNumber,
   translateAreaCode,
   translateIDType,
-} from '@colorless/shared'
+} from '@lsh/shared'
 
 console.log(IDTypesOptions)
 console.log(translateIDType(ID_TYPES.ID_CARD))
@@ -31,7 +31,7 @@ console.log(isValidIdNumber(ID_TYPES.ID_CARD, '110101199003076111'))
 ### 使用通用分页类型
 
 ```ts
-import type { ListRequest, ListResponse } from '@colorless/shared'
+import type { ListRequest, ListResponse } from '@lsh/shared'
 
 interface UserRow {
   id: string

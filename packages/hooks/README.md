@@ -1,17 +1,17 @@
-# `@colorless/hooks`
+# `@lsh/hooks`
 
 共享组合式函数包，负责沉淀项目间可复用的 Vue Hook，覆盖分页列表、滚动加载、筛选快照、片段记录和可等待弹层等常见场景。
 
 ## 快速开始
 
 ```bash
-pnpm add @colorless/hooks
+pnpm add @lsh/hooks
 ```
 
 ### 列表拉取
 
 ```ts
-import { useList } from '@colorless/hooks'
+import { useList } from '@lsh/hooks'
 
 const { loading, pageNum, pageSize, records, refresh, total } = useList({
   fetchData: async ({ pageNum, pageSize }) => {
@@ -29,7 +29,7 @@ const { loading, pageNum, pageSize, records, refresh, total } = useList({
 ### 滚动加载
 
 ```ts
-import { useScrollList } from '@colorless/hooks'
+import { useScrollList } from '@lsh/hooks'
 
 const { records, next, isNotMore } = useScrollList({
   fetchData: async ({ pageNum, pageSize }) => {
@@ -47,7 +47,7 @@ const { records, next, isNotMore } = useScrollList({
 ### 可等待弹层
 
 ```ts
-import { useAwaitablePopup } from '@colorless/hooks'
+import { useAwaitablePopup } from '@lsh/hooks'
 
 const popup = useAwaitablePopup<string>()
 

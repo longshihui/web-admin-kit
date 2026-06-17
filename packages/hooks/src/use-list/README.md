@@ -1,4 +1,4 @@
-# useList
+# useList 说明
 
 此组合式函数封装了**分页列表**相关的逻辑，使得在编写分页相关业务代码时，无需重新处理分页和列表的通用逻辑。
 
@@ -9,16 +9,16 @@
 首先，先确保已经安装相关的包，如果已经安装，则跳过这一步
 
 ```bash
-pnpm add @colorless/hooks
+pnpm add @lsh/hooks
 ```
 
 引入该组合式函数
 
 ```ts
-import { useList } from '@colorless/hooks'
+import { useList } from '@lsh/hooks'
 ```
 
-在vue组件中使用该组合式函数
+在 Vue 组件中使用该组合式函数
 
 ```html
 <template>
@@ -26,7 +26,7 @@ import { useList } from '@colorless/hooks'
 </template>
 
 <script setup lang="ts">
-  import { useList } from '@colorless/hooks'
+  import { useList } from '@lsh/hooks'
 
   interface Record {
     name: string
@@ -49,21 +49,20 @@ import { useList } from '@colorless/hooks'
 </script>
 ```
 
-
-
 ## API
 
 ### 入参
 
-| 参数名          | 类型       | 是否可为空 | 默认值 | 说明                                                         |
-| --------------- | ---------- | ---------- | ------ | ------------------------------------------------------------ |
-| defaultPageNum  | `number`   | 是         | 10     | 默认的页码                                                   |
-| defaultPageSize | `number`   | 是         | 1      | 默认每页显示的条数                                           |
-| fetchData       | `Function` | 否         | -      | 列表数据源，具体类型参考类型定义`UseListHookOptions`         |
-| afterFetch      | `Function` | 是         | -      | 获取数据之后的钩子，具体类型参考类型定义`UseListHookOptions` |
-| beforeFetch     | `Function` | 是         | -      | 获取列表数据前的钩子函数，返回值为`boolean` 或`Promise<boolean>`，当返回false时，则会阻止获取数据 |
-| onError         | `Function` | 是         | -      | 当获取数据失败时执行的钩子函数，具体入参参考类型定义`UseListHookOptions` |
-| immediateFetch  | `boolean`  | 是         | true   | 是否设置完hook就立即执行拉取                                 |
+<!-- markdownlint-disable MD060 -->
+| 参数名          | 类型       | 是否可为空 | 默认值 | 说明                                                                                               |
+| :-------------- | :--------- | :--------- | :----- | :------------------------------------------------------------------------------------------------- |
+| defaultPageNum  | `number`   | 是         | 10     | 默认的页码                                                                                         |
+| defaultPageSize | `number`   | 是         | 1      | 默认每页显示的条数                                                                                 |
+| fetchData       | `Function` | 否         | -      | 列表数据源，具体类型参考类型定义 `UseListHookOptions`                                               |
+| afterFetch      | `Function` | 是         | -      | 获取数据之后的钩子，具体类型参考类型定义 `UseListHookOptions`                                       |
+| beforeFetch     | `Function` | 是         | -      | 获取列表数据前的钩子函数，返回值为 `boolean` 或 `Promise<boolean>`，当返回 `false` 时会阻止获取数据 |
+| onError         | `Function` | 是         | -      | 当获取数据失败时执行的钩子函数，具体入参参考类型定义 `UseListHookOptions`                           |
+| immediateFetch  | `boolean`  | 是         | true   | 是否设置完 hook 就立即执行拉取                                                                     |
 
 ### 出参
 
@@ -77,6 +76,7 @@ import { useList } from '@colorless/hooks'
 | init     | `() => Promise<void>` | 执行初始化，相当于刷新当页           |
 | reset    | `() => Promise<void>` | 重置列表，页码、页宽将会恢复为默认值 |
 | refresh  | `() => Promise<void>` | 刷新当页数据                         |
+<!-- markdownlint-enable MD060 -->
 
 ## 类型定义
 
