@@ -18,6 +18,9 @@ pnpm commit
 pnpm test:run
 pnpm build
 pnpm docs:dev
+pnpm changeset
+pnpm release:notes:print
+pnpm release
 ```
 
 ## Commit Workflow
@@ -25,3 +28,12 @@ pnpm docs:dev
 - Run `pnpm commit` to open the interactive Commitizen prompt powered by `cz-git`.
 - The prompt guides you through `type`, `scope`, `subject`, optional body, and issue footer fields.
 - The existing Husky `commit-msg` hook still runs `commitlint`, so manual commits remain validated against the conventional commit format.
+
+## Release Workflow
+
+- Use `pnpm changeset` after changing one or more packages.
+- Use `pnpm changeset:status` to review the pending package version bumps.
+- Use `pnpm release:notes:print` to preview the repository-level GitHub Release notes bundle.
+- Use `pnpm release` to run the full release flow: generate repository release notes, validate the workspace, apply package versions and changelogs, create the git tag, and publish the GitHub Release.
+- After the `v*` tag is pushed, GitHub Actions runs `pnpm publish:ci` to publish changed packages to npm.
+- Full release documentation lives in [release.md](./release.md).

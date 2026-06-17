@@ -12,21 +12,19 @@
   },
   "github": {
     "release": true,
-    "releaseName": "${tagName}"
+    "releaseName": "${tagName}",
+    "releaseNotes": "cat .git/.release-notes.md"
   },
   "npm": {
     "publish": false
   },
   "hooks": {
-    "before:init": ["pnpm lint", "pnpm test:run", "pnpm build", "pnpm docs:build"]
-  },
-  "plugins": {
-    "@release-it/conventional-changelog": {
-      "preset": {
-        "name": "conventionalcommits"
-      },
-      "infile": "CHANGELOG.md",
-      "header": "# Changelog"
-    }
+    "before:init": [
+      "pnpm release:notes",
+      "pnpm check:push",
+      "pnpm build",
+      "pnpm docs:build"
+    ],
+    "before:git:release": "pnpm release:version"
   }
 }

@@ -52,9 +52,18 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'Release', link: '/release' },
       { text: 'Packages', link: '/packages/' }
     ],
     sidebar: {
+      '/': [
+        {
+          text: 'Guides',
+          items: [
+            { text: 'Release Guide', link: '/release' }
+          ]
+        }
+      ],
       '/packages/': [
         {
           text: 'Packages',
