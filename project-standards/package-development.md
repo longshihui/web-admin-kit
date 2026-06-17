@@ -1,6 +1,7 @@
 # 包开发规范
 
 本文件记录当前仓库的包开发规则。
+公共 API 的通用设计原则见 `../code-standards/api-design.md`。
 
 ## 包边界
 
