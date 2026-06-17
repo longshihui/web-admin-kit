@@ -1,6 +1,6 @@
 import { type Ref, ref, watch } from 'vue'
 
-import { UseListHookOptions, UseListReturn } from './types'
+import type { UseListHookOptions, UseListReturn } from './types'
 
 export function useList<R>(options: UseListHookOptions<R>): UseListReturn<R> {
   const {

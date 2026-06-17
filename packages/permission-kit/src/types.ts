@@ -1,4 +1,4 @@
-import { PermissionCalculateMode } from './constants'
+import type { PermissionCalculateMode } from './constants'
 
 // 权限点
 export type PermissionCode = string

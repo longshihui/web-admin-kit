@@ -5,7 +5,6 @@ import { INJECTION_KEY } from './constants'
 import { normalizeCalculator, normalizeCodes } from './helpers'
 import { PermissionStore } from './store'
 import type {
-  PermissionCalculator,
   PermissionCode,
   PermissionListener,
   PermissionOptions,
@@ -39,19 +38,12 @@ export class PermissionSDK {
     this.store.setCodes(codes)
   }
   hasPermission(props: PermissionOptions) {
-    let codes: PermissionCode[] = []
-    let calculator: PermissionCalculator = and
-
     if (typeof props === 'string') {
-      codes = [props]
-      calculator = and
-    } else if (Array.isArray(props)) {
-      codes = props
-      calculator = and
-    } else {
-      codes = normalizeCodes(props.codes)
-      calculator = normalizeCalculator(props.calculator)
+      return and([props], this.getCodes().value)
     }
+
+    const codes = Array.isArray(props) ? props : normalizeCodes(props.codes)
+    const calculator = Array.isArray(props) ? and : normalizeCalculator(props.calculator)
 
     return calculator(codes, this.getCodes().value)
   }
