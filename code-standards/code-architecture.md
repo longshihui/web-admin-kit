@@ -21,15 +21,17 @@
 
 在编写代码时，需要根据场景遵守以下目录规范
 
-### 项目目录
+### 推荐项目目录
+
+以下目录结构仅作为通用推荐。具体项目可以在项目级规范中调整：
 
 ```plaintext
 ├── src
-│   ├── api 后端接口
+│   ├── api 接口请求
 │   ├── assets  全局静态资源
 │   ├── components 全局组件
 │   ├── constants  全局常量
-│   ├── directive 全局指令
+│   ├── directives 全局指令
 │   ├── hooks 全局组合式函数
 │   ├── pages 业务页面
 │   ├── types 全局类型
@@ -38,7 +40,7 @@
 
 ### 模块目录
 
-文件夹命名使用 `kebab-case`，目录结构如下：
+文件夹命名使用 `kebab-case`，目录结构如下。以下以 `contract/` 业务域为例：
 
 - `contract/`：合同模块总文件夹
   - `components/`：该业务模块内部组件
@@ -64,22 +66,22 @@
   - `types.ts`：存放类型信息
   - `index.ts` 入口文件
 
-使用方:
+使用方：
 
 ```typescript
 import {
   ContractEditor,
   ContractEditorOtherComponent,
-} from "@/components/contract-editor";
+} from "./contract-editor";
 ```
 
 ### 组合式函数目录
 
-文件夹命名使用 `kebab-case`，例如要设计一个`use-title`的组合式函数，则目录结构如下：
+文件夹命名使用 `kebab-case`，例如要设计一个 `use-title` 的组合式函数，则目录结构如下：
 
 - `use-title/`：总文件夹
   - `components/`：存放内部使用的组件。
-  - `hooks/`：该组件内部使用的hooks或者提供给使用方的hooks。
+  - `hooks/`：内部使用或提供给使用方的 hooks。
   - `utils/`：该模块内部工具方法
   - `use-title.ts`：组合式函数主文件
   - `types.ts`：存放类型信息

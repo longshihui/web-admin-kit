@@ -11,22 +11,6 @@
 - 不确定需求、公共 API 设计、兼容性影响或 breaking change 时，必须先与开发者确认。
 - 不得回滚、删除或覆盖与当前任务无关的已有改动。
 
-## 技术栈
-
-- 基础语言：TypeScript
-- 前端框架：Vue 3
-- 构建工具：Vite
-- 测试框架：Vitest
-- 包管理器：pnpm
-- Monorepo：该项目使用 pnpm workspace 组织。
-
-## 项目结构
-
-- 所有包位于 `packages/*`。
-- 每个包独立维护版本。
-- 包名统一使用 `@colorless/*`。
-- 包之间应通过公开入口引用，不要直接引用其他包的内部源码。
-
 ## 开发流程
 
 1. 明确需求和影响范围。
@@ -47,25 +31,17 @@
 
 ## 规范阅读路由
 
+### 通用代码规范
+
 - 涉及 TypeScript、Vue、CSS、BEM、注释时，阅读[代码规范](./code-standards/coding-style.md)。
 - 涉及业务页面、表单、表格、弹窗、抽屉时，阅读[业务代码开发规范](./code-standards/business-coding-style.md)。
 - 涉及新增目录、模块边界、共享能力、跨模块复用时，阅读[代码架构规范](./code-standards/code-architecture.md)。
 - 涉及组件拆分、wrapper、hooks、抽象边界时，阅读[组件与 Hooks 规范](./code-standards/component-and-hooks.md)。
 - 涉及重构时，阅读[代码重构规范](./code-standards/code-refactoring.md)，并将改动限制在当前任务影响范围内。
 
-## 验证命令
+### 项目级规范
 
-- 单包测试：`pnpm --filter <package-name> test`
-- 全量测试：`pnpm test:run`
-- 类型检查：`pnpm typecheck`
-- Lint：`pnpm lint`
-- 常规检查：`pnpm check`
-- 推送前检查：`pnpm check:push`
-- 构建所有包：`pnpm build`
-- 文档构建：`pnpm docs:build`
-
-## 文档与发布
-
-- 公共 API、行为或使用方式变化时，必须更新对应包的 README 或 docs。
-- 影响包发布内容时，需要评估是否添加 changeset。
-- 纯测试、内部重构且不影响发布产物时，可以不添加 changeset。
+- 涉及技术栈、workspace、包目录、包依赖关系时，阅读[工作区规范](./project-standards/workspace.md)。
+- 涉及测试、构建、检查、文档站点命令时，阅读[命令规范](./project-standards/commands.md)。
+- 涉及包边界、公共 API、包导出、新增包时，阅读[包开发规范](./project-standards/package-development.md)。
+- 涉及 README、docs、changeset、发版时，阅读[文档与发布规范](./project-standards/documentation-and-release.md)。
