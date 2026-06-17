@@ -3,6 +3,9 @@ import { listPackageDocs } from './package-docs'
 
 const packageDocs = listPackageDocs()
 const docsBase = process.env.DOCS_BASE ?? '/'
+const staticRewrites = {
+  'packages/README.md': 'packages/index.md'
+}
 
 const packageRewrites = packageDocs.reduce<Record<string, string>>((rewrites, pkg) => {
   for (const page of pkg.pages) {
@@ -25,7 +28,7 @@ const packageSidebarItems: DefaultTheme.SidebarItem[] = packageDocs.map((pkg) =>
 export default defineConfig({
   base: docsBase,
   title: 'Web Admin Kit',
-  description: 'Framework-agnostic TypeScript utilities and SDKs for web admin products.',
+  description: '面向中后台项目的 TypeScript 工具包与共享 SDK 文档站。',
   lang: 'zh-CN',
   cleanUrls: true,
   srcExclude: [
@@ -48,27 +51,31 @@ export default defineConfig({
     }
   },
   lastUpdated: true,
-  rewrites: packageRewrites,
+  rewrites: {
+    ...staticRewrites,
+    ...packageRewrites
+  },
   themeConfig: {
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Release', link: '/release' },
-      { text: 'Packages', link: '/packages/' }
+      { text: '首页', link: '/' },
+      { text: '包文档', link: '/packages/' },
+      { text: '发版说明', link: '/release' }
     ],
     sidebar: {
       '/': [
         {
-          text: 'Guides',
+          text: '开始使用',
           items: [
-            { text: 'Release Guide', link: '/release' }
+            { text: '工作区说明', link: '/' },
+            { text: '发版说明', link: '/release' }
           ]
         }
       ],
       '/packages/': [
         {
-          text: 'Packages',
+          text: '包文档',
           items: [
-            { text: 'Overview', link: '/packages/' },
+            { text: '总览', link: '/packages/' },
             ...packageSidebarItems
           ]
         }
@@ -79,14 +86,14 @@ export default defineConfig({
     },
     outline: {
       level: [2, 3],
-      label: 'On this page'
+      label: '本页目录'
     },
     docFooter: {
-      prev: 'Previous page',
-      next: 'Next page'
+      prev: '上一页',
+      next: '下一页'
     },
     lastUpdated: {
-      text: 'Updated at'
+      text: '最后更新'
     }
   }
 })

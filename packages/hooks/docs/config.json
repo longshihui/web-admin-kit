@@ -1,0 +1,17 @@
+{
+  "summary": "共享组合式函数包，沉淀分页、滚动加载、筛选快照和可等待弹层等项目级 Hook。",
+  "pages": [
+    {
+      "title": "概览",
+      "file": "README.md"
+    },
+    {
+      "title": "设计说明",
+      "file": "design.md"
+    },
+    {
+      "title": "API 文档",
+      "file": "api.md"
+    }
+  ]
+}

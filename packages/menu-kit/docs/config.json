@@ -1,0 +1,17 @@
+{
+  "summary": "共享菜单能力包，提供菜单声明、构建、导航、高亮和校验能力。",
+  "pages": [
+    {
+      "title": "概览",
+      "file": "README.md"
+    },
+    {
+      "title": "设计说明",
+      "file": "design.md"
+    },
+    {
+      "title": "API 文档",
+      "file": "api.md"
+    }
+  ]
+}

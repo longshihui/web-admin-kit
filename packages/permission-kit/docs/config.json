@@ -1,0 +1,17 @@
+{
+  "summary": "共享权限能力包，提供权限 SDK、组合式消费、模板切面、指令和路由守卫。",
+  "pages": [
+    {
+      "title": "概览",
+      "file": "README.md"
+    },
+    {
+      "title": "设计说明",
+      "file": "design.md"
+    },
+    {
+      "title": "API 文档",
+      "file": "api.md"
+    }
+  ]
+}
