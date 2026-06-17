@@ -4,7 +4,7 @@
 
 当前业务端菜单从路由配置派生，路由 `meta` 同时承载页面访问权限、菜单标题、图标、排序和隐藏规则。随着外链菜单、动作菜单、第三方系统入口等导航场景出现，继续把菜单挂在 `RouteRecordRaw` 上会让路由模型承载过多职责。
 
-`@lsh/menu-kit` 的目标是把菜单作为独立的一等模型：
+`@colorless/menu-kit` 的目标是把菜单作为独立的一等模型：
 
 - 路由配置负责页面注册和 URL 访问控制。
 - 菜单配置负责导航结构和入口展示。
@@ -70,7 +70,7 @@
 菜单目标分三类：
 
 ```ts
-import { MENU_TARGET_TYPES } from "@lsh/menu-kit";
+import { MENU_TARGET_TYPES } from "@colorless/menu-kit";
 
 type MenuTarget =
   | { type?: typeof MENU_TARGET_TYPES.ROUTE; location: RouteLocationRaw }
@@ -270,7 +270,7 @@ const { menus } = useMenu(menuTree);
 
 ### 第一阶段
 
-- 新增 `@lsh/menu-kit`。
+- 新增 `@colorless/menu-kit`。
 - 把菜单类型、构建、跳转、高亮和校验能力放入共享包。
 - 在业务端新建 `src/menu/configs`。
 - 保留现有路由 meta，先新增菜单配置并并行验证。

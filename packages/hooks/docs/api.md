@@ -2,7 +2,7 @@
 
 ## 导出总览
 
-`@lsh/hooks` 导出分页列表、滚动列表、筛选快照、片段记录和可等待弹层相关 Hook。
+`@colorless/hooks` 导出分页列表、滚动列表、筛选快照、片段记录和可等待弹层相关 Hook。
 
 ```ts
 import {
@@ -11,7 +11,7 @@ import {
   useList,
   useScrollList,
   useSnapshotFilters,
-} from '@lsh/hooks'
+} from '@colorless/hooks'
 ```
 
 ## `useList(options)`

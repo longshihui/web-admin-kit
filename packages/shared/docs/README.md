@@ -1,6 +1,6 @@
-# @lsh/shared
+# @colorless/shared
 
-`@lsh/shared` 聚合项目之间稳定复用的基础能力，包括通用类型、字典常量、正则表达式和轻量校验工具。
+`@colorless/shared` 聚合项目之间稳定复用的基础能力，包括通用类型、字典常量、正则表达式和轻量校验工具。
 
 ## 适用场景
 
@@ -12,7 +12,7 @@
 ## 安装
 
 ```bash
-pnpm add @lsh/shared
+pnpm add @colorless/shared
 ```
 
 ## 文档导航

@@ -80,7 +80,9 @@ function routeFromMarkdownPath(routeSegment: string, relativePath: string): stri
 }
 
 function packageRouteSegment(packageName: string, dirName: string): string {
-  return packageName.startsWith('@lsh/') ? packageName.slice('@lsh/'.length) : dirName
+  return packageName.startsWith('@colorless/')
+    ? packageName.slice('@colorless/'.length)
+    : dirName
 }
 
 function readPackageDocConfig(docsDir: string): PackageDocConfig | null {

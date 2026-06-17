@@ -2,7 +2,7 @@
 
 ## 导出总览
 
-`@lsh/shared` 导出通用分页类型、证件类型常量、电话区号数据、常用正则表达式和基础校验工具。
+`@colorless/shared` 导出通用分页类型、证件类型常量、电话区号数据、常用正则表达式和基础校验工具。
 
 ```ts
 import {
@@ -21,7 +21,7 @@ import {
   isValidPhoneNumber,
   translateAreaCode,
   translateIDType,
-} from '@lsh/shared'
+} from '@colorless/shared'
 ```
 
 ## 类型

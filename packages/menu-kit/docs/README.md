@@ -1,6 +1,6 @@
-# @lsh/menu-kit
+# @colorless/menu-kit
 
-`@lsh/menu-kit` 提供中后台项目常用的菜单建模能力，把菜单声明、权限判断、跳转执行和激活计算从具体 UI 组件中解耦出来。
+`@colorless/menu-kit` 提供中后台项目常用的菜单建模能力，把菜单声明、权限判断、跳转执行和激活计算从具体 UI 组件中解耦出来。
 
 ## 适用场景
 
@@ -12,7 +12,7 @@
 ## 安装
 
 ```bash
-pnpm add @lsh/menu-kit
+pnpm add @colorless/menu-kit
 ```
 
 ## 文档导航
