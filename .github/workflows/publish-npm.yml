@@ -39,6 +39,8 @@ jobs:
 
       - name: Build packages
         run: pnpm build
+        env:
+          COLORLESS_BUILD_SOURCEMAP: "false"
 
       - name: Build docs
         run: pnpm docs:build
