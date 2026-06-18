@@ -2,7 +2,7 @@
 
 ## 导出总览
 
-`@colorless/menu-kit` 导出菜单类型、响应式菜单生成、菜单跳转、高亮计算、树工具和配置校验能力。
+`@colorless/menu-kit` 导出菜单类型、响应式菜单生成、高亮计算、树工具和配置校验能力。
 
 ```ts
 import {
@@ -17,7 +17,6 @@ import {
   getMenuParents,
   hasMenuPermission,
   isMenuVisible,
-  navigateByMenu,
   useMenu,
   validateMenus,
 } from "@colorless/menu-kit";
@@ -53,7 +52,7 @@ MENU_TARGET_TYPES.ACTION; // "action"
 | `hasPermission` | `() => boolean`                        | 否   | 菜单展示权限函数；不配置时默认展示。                                        |
 | `isActive`      | `(route: MenuRouteMatcher) => boolean` | 否   | 菜单激活判断函数；不配置时不会自动激活。                                    |
 | `visible`       | `boolean \| ((context) => boolean)`    | 否   | 额外展示条件；`false` 时整棵子树不展示。                                    |
-| `disabled`      | `boolean`                              | 否   | 是否禁用点击跳转。                                                          |
+| `disabled`      | `boolean`                              | 否   | 是否禁用点击。                                                              |
 | `children`      | `AppMenuItem[]`                        | 否   | 子菜单。                                                                    |
 | `meta`          | `TMeta`                                | 否   | 业务自定义扩展信息。                                                        |
 
@@ -199,35 +198,28 @@ isMenuVisible({ visible: false }, {}); // false
 isMenuVisible({ visible: () => true }, {}); // true
 ```
 
-## 导航 API
+## 菜单点击
 
-### `navigateByMenu(menu, router, options?)`
-
-根据菜单目标执行跳转。
-
-参数：
-
-| 参数      | 类型                  | 必填 | 说明                       |
-| --------- | --------------------- | ---- | -------------------------- |
-| `menu`    | `BuiltMenuItem`       | 是   | 构建后的菜单项。           |
-| `router`  | `Router`              | 是   | Vue Router 实例。          |
-| `options` | `NavigateMenuOptions` | 否   | 动作注册表和外链打开函数。 |
-
-行为：
-
-- 无 `target` 或 `disabled` 时不执行任何动作。
-- route 目标调用 `router.push(location)`。
-- external 目标默认新窗口打开；可通过 `openExternal` 注入行为。
-- action 目标通过 `actionRegistry[action]` 执行；未注册时抛错。
+`menu-kit` 不内置菜单点击跳转 API。调用方应在业务项目的菜单组件或 UI 适配层中根据 `menu.target` 自行处理路由、外链和动作菜单。
 
 ```ts
-await navigateByMenu(menu, router, {
-  actionRegistry: {
-    refreshDashboard: async (payload, menu) => {
-      await refreshDashboard(payload, menu);
-    },
-  },
-});
+if (menu.disabled || !menu.target) {
+  return;
+}
+
+if (!menu.target.type || menu.target.type === MENU_TARGET_TYPES.ROUTE) {
+  await router.push(menu.target.location);
+  return;
+}
+
+if (menu.target.type === MENU_TARGET_TYPES.EXTERNAL) {
+  window.open(menu.target.href, "_blank", "noopener,noreferrer");
+  return;
+}
+
+if (menu.target.type === MENU_TARGET_TYPES.ACTION) {
+  await actionRegistry[menu.target.action]?.(menu.target.payload, menu);
+}
 ```
 
 ## 高亮 API

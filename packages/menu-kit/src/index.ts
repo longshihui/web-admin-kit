@@ -1,7 +1,6 @@
 export * from "./active";
 export * from "./builder";
 export * from "./key";
-export * from "./navigator";
 export * from "./permission";
 export * from "./types";
 export * from "./use-menu";

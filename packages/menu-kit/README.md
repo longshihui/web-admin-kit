@@ -1,6 +1,6 @@
 # `@colorless/menu-kit`
 
-共享菜单能力包，负责沉淀项目间可复用的“菜单配置、响应式构建、导航解析和高亮计算”能力。
+共享菜单能力包，负责沉淀项目间可复用的“菜单配置、响应式构建和高亮计算”能力。
 
 该包的核心目标是让菜单成为独立于 `vue-router` 的导航配置模型。路由只负责页面注册和访问控制，菜单只负责导航展示和入口编排，两者通过稳定 API 协同。
 
@@ -60,19 +60,19 @@ const { activeMenu, expandedMenuKeys, menus } = useMenu(contractMenus, {
 
 `menus` 是 `ComputedRef<BuiltMenuItem[]>`。如果 `hasPermission` 内部读取了 Vue 响应式权限状态，权限变化后菜单会自动重新计算。
 
-### 菜单跳转
+### 菜单点击
 
 ```ts
-import { navigateByMenu } from "@colorless/menu-kit";
-
-await navigateByMenu(menu, router, {
-  actionRegistry: {
-    refreshDashboard: async () => {
-      await refreshDashboard();
-    },
-  },
-});
+if (
+  !menu.disabled &&
+  menu.target &&
+  (!menu.target.type || menu.target.type === MENU_TARGET_TYPES.ROUTE)
+) {
+  await router.push(menu.target.location);
+}
 ```
+
+`menu-kit` 只负责声明和构建菜单，不内置点击跳转逻辑。业务项目应在菜单组件或 UI 适配层中处理路由、外链和动作菜单的点击行为。
 
 ## 文档
 

@@ -60,17 +60,6 @@ export interface BuildMenusOptions {
   keepEmptyGroup?: boolean;
 }
 
-export interface MenuActionHandler<TPayload = unknown> {
-  (payload: TPayload | undefined, menu: BuiltMenuItem): void | Promise<void>;
-}
-
-export type MenuActionRegistry = Record<string, MenuActionHandler>;
-
-export interface NavigateMenuOptions {
-  actionRegistry?: MenuActionRegistry;
-  openExternal?: (target: MenuExternalTarget) => void;
-}
-
 export interface MenuRouteMatcher {
   routeName?: string | symbol | null;
   path?: string;
