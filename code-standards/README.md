@@ -4,6 +4,7 @@
 
 ## 文件说明
 
+- [AGENTS 模板](./AGENTS.template.md)：复制到项目根目录后可快速创建高质量 `AGENTS.md`。
 - [代码规范](./coding-style.md)：TypeScript、Vue、CSS、BEM 和注释规则。
 - [业务开发代码规范](./business-coding-style.md)：中后台业务页面、表单、表格、弹窗、接口状态和权限编排规则。
 - [代码架构规范](./code-architecture.md)：命名、目录组织、模块边界、导入边界和共享复用规则。
