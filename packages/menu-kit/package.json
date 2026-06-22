@@ -1,7 +1,7 @@
 {
   "name": "@colorless/menu-kit",
   "version": "0.0.0",
-  "description": "Reactive menu declaration, building, and active state helpers for web admin products.",
+  "description": "Reactive menu declaration, building, click strategy, and active state helpers for web admin products.",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

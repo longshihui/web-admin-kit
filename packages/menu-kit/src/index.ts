@@ -1,5 +1,6 @@
 export * from "./active";
 export * from "./builder";
+export * from "./click";
 export * from "./key";
 export * from "./permission";
 export * from "./types";

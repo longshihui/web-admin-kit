@@ -2,12 +2,13 @@
 
 ## 导出总览
 
-`@colorless/menu-kit` 导出菜单类型、响应式菜单生成、高亮计算、树工具和配置校验能力。
+`@colorless/menu-kit` 导出菜单类型、响应式菜单生成、菜单点击策略分发、高亮计算、树工具和配置校验能力。
 
 ```ts
 import {
   MENU_TARGET_TYPES,
   buildMenus,
+  createMenuClickHandler,
   createMenuMap,
   getActiveMenu,
   findMenuByKey,
@@ -77,6 +78,24 @@ type MenuTarget =
       action: string;
       payload?: unknown;
     };
+```
+
+### 点击菜单类型
+
+`createMenuClickHandler` 会按 `target` 类型把 `BuiltMenuItem` 收窄为以下类型：
+
+```ts
+type RouteBuiltMenuItem<TMeta> = BuiltMenuItem<TMeta> & {
+  target: MenuRouteTarget;
+};
+
+type ExternalBuiltMenuItem<TMeta> = BuiltMenuItem<TMeta> & {
+  target: MenuExternalTarget;
+};
+
+type ActionBuiltMenuItem<TMeta> = BuiltMenuItem<TMeta> & {
+  target: MenuActionTarget;
+};
 ```
 
 ### `BuildMenusOptions`
@@ -200,26 +219,44 @@ isMenuVisible({ visible: () => true }, {}); // true
 
 ## 菜单点击
 
-`menu-kit` 不内置菜单点击跳转 API。调用方应在业务项目的菜单组件或 UI 适配层中根据 `menu.target` 自行处理路由、外链和动作菜单。
+### `createMenuClickHandler(strategies)`
+
+创建菜单点击处理函数。共享包只负责封装跳过条件和按菜单目标类型分发策略，不内置具体跳转逻辑。
+
+参数：
+
+| 参数                  | 类型                                     | 必填 | 说明             |
+| --------------------- | ---------------------------------------- | ---- | ---------------- |
+| `strategies.route`    | `(menu: RouteBuiltMenuItem) => TResult`  | 是   | 路由菜单策略。   |
+| `strategies.external` | `(menu: ExternalBuiltMenuItem) => TResult` | 是 | 外链菜单策略。   |
+| `strategies.action`   | `(menu: ActionBuiltMenuItem) => TResult` | 是   | 动作菜单策略。   |
+
+返回值：
+
+- 返回一个菜单点击函数，入参为 `BuiltMenuItem`。
+- 传入 route、external、action 收窄菜单时，返回对应策略返回值或 `undefined`。
+- 传入普通 `BuiltMenuItem` 时，返回三类策略返回值的联合类型或 `undefined`。
+
+跳过条件：
+
+- `menu.disabled === true` 时直接返回 `undefined`。
+- `!menu.target` 时直接返回 `undefined`。
+- 路由菜单未声明 `target.type` 时按 route 菜单处理。
 
 ```ts
-if (menu.disabled || !menu.target) {
-  return;
-}
+const handleMenuClick = createMenuClickHandler({
+  route: async (menu) => {
+    await router.push(menu.target.location);
+  },
+  external: (menu) => {
+    window.open(menu.target.href, "_blank", "noopener,noreferrer");
+  },
+  action: async (menu) => {
+    await actionRegistry[menu.target.action]?.(menu.target.payload, menu);
+  },
+});
 
-if (!menu.target.type || menu.target.type === MENU_TARGET_TYPES.ROUTE) {
-  await router.push(menu.target.location);
-  return;
-}
-
-if (menu.target.type === MENU_TARGET_TYPES.EXTERNAL) {
-  window.open(menu.target.href, "_blank", "noopener,noreferrer");
-  return;
-}
-
-if (menu.target.type === MENU_TARGET_TYPES.ACTION) {
-  await actionRegistry[menu.target.action]?.(menu.target.payload, menu);
-}
+await handleMenuClick(menu);
 ```
 
 ## 高亮 API
