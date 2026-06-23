@@ -1,6 +1,6 @@
 {
   "name": "@colorless/hooks",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Reusable Vue composition utilities for admin products.",
   "type": "module",
   "main": "./dist/index.js",

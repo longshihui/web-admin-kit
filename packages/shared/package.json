@@ -1,6 +1,6 @@
 {
   "name": "@colorless/shared",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Shared types, constants, patterns, and validators for admin products.",
   "type": "module",
   "main": "./dist/index.js",
