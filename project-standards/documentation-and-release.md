@@ -35,6 +35,8 @@
 
 ## 发版职责
 
-- `changesets` 管理各包独立版本和包级 `CHANGELOG.md`。
-- `release-it` 创建仓库级发布提交、git tag 和 GitHub Release。
-- 推送 `v*` 标签后，GitHub Actions 执行 npm 发布和文档部署。
+- `changesets` 管理各包独立版本、包级 `CHANGELOG.md` 和包级 git tag。
+- `changesets/action` 根据 `main` 分支中的 changeset 自动创建或更新版本 PR。
+- 版本 PR 合并后，GitHub Actions 发布发生版本变化的包，并为每个包创建 GitHub Release。
+- 仓库不维护项目级版本和项目级 git tag。
+- 文档站点跟随 `main` 分支独立部署，不作为 npm 发布触发器。

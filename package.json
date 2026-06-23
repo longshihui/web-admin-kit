@@ -1,6 +1,5 @@
 {
   "name": "web-admin-kit",
-  "version": "0.1.0",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@11.7.0",
@@ -21,12 +20,6 @@
     "commitlint:from": "commitlint",
     "prepare": "husky",
     "publish:ci": "changeset publish",
-    "release": "release-it",
-    "release:ci": "release-it --ci",
-    "release:dry": "release-it --dry-run --no-git.requireCleanWorkingDir",
-    "release:notes": "tsx scripts/release/build-release-notes.ts",
-    "release:notes:print": "tsx scripts/release/build-release-notes.ts --stdout",
-    "release:version": "changeset version",
     "test": "vitest",
     "test:run": "vitest run",
     "typecheck": "tsc -p tsconfig.json --noEmit"
@@ -53,8 +46,6 @@
     "husky": "^9.1.7",
     "jsdom": "^25.0.1",
     "lint-staged": "^17.0.7",
-    "release-it": "^20.2.0",
-    "tsx": "^4.20.6",
     "tsc-files": "^1.1.4",
     "typescript": "^6.0.3",
     "typescript-eslint": "8.61.0",

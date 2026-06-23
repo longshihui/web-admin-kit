@@ -6,6 +6,7 @@ const docsBase = process.env.DOCS_BASE ?? '/'
 const staticRewrites = {
   'docs/index.md': 'index.md',
   'docs/guide.md': 'guide.md',
+  'docs/development.md': 'development.md',
   'docs/release.md': 'release.md',
   'docs/packages/README.md': 'packages/index.md'
 }
@@ -62,6 +63,7 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '项目说明', link: '/guide' },
+      { text: '开发流程', link: '/development' },
       { text: '包文档', link: '/packages/' },
       { text: '发版说明', link: '/release' }
     ],
@@ -72,6 +74,7 @@ export default defineConfig({
           items: [
             { text: '首页', link: '/' },
             { text: '项目说明', link: '/guide' },
+            { text: '开发流程', link: '/development' },
             { text: '发版说明', link: '/release' },
             { text: '变更日志', link: '/changelog' }
           ]
