@@ -1,6 +1,6 @@
 {
   "name": "@colorless/hooks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "面向中后台项目的 Vue 组合式函数包，提供分页、滚动加载、筛选快照和可等待弹层等能力。",
   "license": "MIT",
   "keywords": [
