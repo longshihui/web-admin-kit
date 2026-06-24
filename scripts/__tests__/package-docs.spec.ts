@@ -15,7 +15,7 @@ describe('package docs data', () => {
   })
 
   it('首页包卡片数据包含版本号', async () => {
-    const packageDocs = await packageDocsLoader.load()
+    const packageDocs = await packageDocsLoader.load([])
 
     expect(packageDocs.length).toBeGreaterThan(0)
 
