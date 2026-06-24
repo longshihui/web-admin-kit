@@ -56,4 +56,4 @@ jobs:
         with:
           publish: pnpm publish:ci
         env:
-          GITHUB_TOKEN: ${{ secrets.ACTIONS_SECRET }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
