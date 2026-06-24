@@ -1,3 +1,28 @@
+import { readFileSync, readdirSync } from 'node:fs'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const rootDir = dirname(fileURLToPath(import.meta.url))
+const packagesDir = join(rootDir, 'packages')
+
+function listPackageScopes() {
+  return readdirSync(packagesDir, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => {
+      const packageDir = join(packagesDir, entry.name)
+      const packageJsonPath = join(packageDir, 'package.json')
+      const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8'))
+
+      return {
+        value: entry.name,
+        name: `${entry.name}: ${packageJson.name} 包`,
+      }
+    })
+    .sort((left, right) => left.value.localeCompare(right.value))
+}
+
+const packageScopes = listPackageScopes()
+
 export default {
   subjectLimit: 72,
   allowBreakingChanges: ['feat', 'fix', 'refactor'],
@@ -29,9 +54,7 @@ export default {
   ],
   scopes: [
     { value: 'repo', name: 'repo: 整个 workspace 范围改动' },
-    { value: 'core', name: 'core: @colorless/core 包' },
-    { value: 'sdk', name: 'sdk: @colorless/sdk 包' },
-    { value: 'menu-kit', name: 'menu-kit: @colorless/menu-kit 包' },
+    ...packageScopes,
     { value: 'docs', name: 'docs: 文档站点或包文档' },
     { value: 'release', name: 'release: 发布与变更日志流程' },
     { value: 'deps', name: 'deps: 依赖更新' },
