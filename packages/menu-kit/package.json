@@ -1,6 +1,6 @@
 {
   "name": "@colorless/menu-kit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "面向中后台项目的响应式菜单能力包，提供菜单声明、构建、导航、高亮和校验能力。",
   "license": "MIT",
   "keywords": [

@@ -1,6 +1,6 @@
 {
   "name": "@colorless/shared",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "面向中后台项目的共享基础能力包，提供通用类型、常量、正则表达式和轻量校验工具。",
   "license": "MIT",
   "keywords": [
