@@ -16,6 +16,9 @@
     "docs",
     "README.md"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "vite build",
     "test": "vitest run --config vitest.config.ts",

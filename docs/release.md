@@ -44,7 +44,10 @@ pnpm publish:ci
 
 ## GitHub 配置
 
+- `.github/workflows/release-pr.yml` 负责创建或更新版本 PR
+- `.github/workflows/publish.yml` 只在 `changeset-release/main` 版本 PR 合并后发布包
 - Actions 的 `GITHUB_TOKEN` 需要 `contents: write` 和 `pull-requests: write` 权限
 - 仓库需要允许 GitHub Actions 创建 pull request
-- npm 发布需要配置 `NPM_TOKEN` secret
+- 每个 npm 包都需要配置 GitHub Actions Trusted Publisher，workflow filename 必须填写 `publish.yml`
+- 发布 workflow 需要 `id-token: write` 权限，并通过 OIDC 获取短期发布凭证，不使用 `NPM_TOKEN` secret
 - 版本 PR 遵循与业务 PR 相同的分支保护和审核规则
