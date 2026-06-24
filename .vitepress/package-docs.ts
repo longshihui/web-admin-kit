@@ -21,6 +21,7 @@ export type PackageDocPage = {
 export type PackageDoc = {
   dirName: string
   displayName: string
+  version: string
   description: string
   summary: string
   routeSegment: string
@@ -179,6 +180,7 @@ export function listPackageDocs(): PackageDoc[] {
       return {
         dirName: entry.name,
         displayName: packageName,
+        version: typeof packageJson.version === 'string' ? packageJson.version : '',
         description: typeof packageJson.description === 'string' ? packageJson.description : '',
         summary: packageDocConfig?.summary || '',
         routeSegment,

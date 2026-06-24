@@ -4,6 +4,7 @@ import { listPackageDocs } from './package-docs'
 export interface PackageDocData {
   name: string
   link: string
+  version: string
   summary: string
   pageCount: number
 }
@@ -17,6 +18,7 @@ export default defineLoader({
     return listPackageDocs().map((pkg) => ({
       name: pkg.displayName,
       link: `/packages/${pkg.routeSegment}/`,
+      version: pkg.version,
       summary: pkg.summary || pkg.description,
       pageCount: pkg.pages.length
     }))
