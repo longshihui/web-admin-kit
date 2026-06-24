@@ -20,19 +20,27 @@ const packageRewrites = packageDocs.reduce<Record<string, string>>((rewrites, pk
   return rewrites
 }, {})
 
-const packageSidebarItems: DefaultTheme.SidebarItem[] = packageDocs.map((pkg) => ({
-  text: pkg.displayName,
-  collapsed: false,
-  items: pkg.pages.map((page) => ({
-    text: page.title,
-    link: page.routePath
-  }))
-}))
-
 const packageNavItems = packageDocs.map((pkg) => ({
   text: pkg.displayName,
   link: pkg.pages[0].routePath
 }))
+
+const packageSidebars = packageDocs.reduce<Record<string, DefaultTheme.SidebarItem[]>>(
+  (sidebars, pkg) => {
+    sidebars[`/packages/${pkg.routeSegment}/`] = [
+      {
+        text: pkg.displayName,
+        items: pkg.pages.map((page) => ({
+          text: page.title,
+          link: page.routePath
+        }))
+      }
+    ]
+
+    return sidebars
+  },
+  {}
+)
 
 const packageFeatures = packageDocs.map((pkg) => ({
   title: pkg.displayName,
@@ -98,10 +106,11 @@ export default defineConfig({
           text: '包文档',
           items: [
             { text: '总览', link: '/packages/' },
-            ...packageSidebarItems
+            ...packageNavItems
           ]
         }
-      ]
+      ],
+      ...packageSidebars
     },
     search: {
       provider: 'local'

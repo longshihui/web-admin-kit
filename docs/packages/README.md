@@ -5,13 +5,15 @@
 import { data as packageDocs } from '../../.vitepress/package-docs.data'
 </script>
 
-项目中的每个包都在自己的 `docs/` 目录维护文档，根级 `VitePress` 负责统一聚合路由、侧边栏和搜索索引。
+项目中的每个包都在自己的 `docs/` 目录维护文档，根级 `VitePress` 负责统一聚合路由、导航、侧边栏和搜索索引。
 
 ## 结构约定
 
 - 包文档统一放在 `packages/<name>/docs/`。
 - 每个包使用 `docs/README.md` 作为文档入口。
 - 每个包使用 `docs/config.json` 声明文档顺序和标题。
+- 顶部 `nav` 保持 `API 文档` 下拉菜单，下拉项为各包名称，点击后进入对应包文档。
+- 右侧目录根据当前页面的 `##`、`###` 标题自动生成。
 - 根级 `.vitepress` 只读取配置并构建站点，不再硬编码单个包结构。
 
 ## 包列表
