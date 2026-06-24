@@ -1,7 +1,24 @@
 {
   "name": "@colorless/permission-kit",
   "version": "1.0.0",
-  "description": "Permission SDK, route guards, directives, and render helpers for Vue admin products.",
+  "description": "面向中后台项目的权限能力包，提供权限 SDK、组合式消费、模板切面、指令和路由守卫。",
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "vue-router",
+    "permission",
+    "access-control",
+    "admin"
+  ],
+  "homepage": "https://longshihui.github.io/web-admin-kit/packages/permission-kit/",
+  "bugs": {
+    "url": "https://github.com/longshihui/web-admin-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/longshihui/web-admin-kit.git",
+    "directory": "packages/permission-kit"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

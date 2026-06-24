@@ -1,7 +1,24 @@
 {
   "name": "@colorless/hooks",
   "version": "1.0.0",
-  "description": "Reusable Vue composition utilities for admin products.",
+  "description": "面向中后台项目的 Vue 组合式函数包，提供分页、滚动加载、筛选快照和可等待弹层等能力。",
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "vue3",
+    "composables",
+    "hooks",
+    "admin"
+  ],
+  "homepage": "https://longshihui.github.io/web-admin-kit/packages/hooks/",
+  "bugs": {
+    "url": "https://github.com/longshihui/web-admin-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/longshihui/web-admin-kit.git",
+    "directory": "packages/hooks"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

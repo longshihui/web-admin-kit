@@ -1,7 +1,24 @@
 {
   "name": "@colorless/menu-kit",
   "version": "1.0.0",
-  "description": "Reactive menu declaration, building, click strategy, and active state helpers for web admin products.",
+  "description": "面向中后台项目的响应式菜单能力包，提供菜单声明、构建、导航、高亮和校验能力。",
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "vue-router",
+    "menu",
+    "navigation",
+    "admin"
+  ],
+  "homepage": "https://longshihui.github.io/web-admin-kit/packages/menu-kit/",
+  "bugs": {
+    "url": "https://github.com/longshihui/web-admin-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/longshihui/web-admin-kit.git",
+    "directory": "packages/menu-kit"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

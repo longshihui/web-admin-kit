@@ -14,5 +14,5 @@
 
 ## 开发与发布
 
-- 日常分支、changeset、提交和业务 PR 要求见[开发流程](./development.md)。
+- 环境准备、日常分支、测试、changeset、提交和业务 PR 要求见[贡献手册](./development.md)。
 - 版本 PR、npm 发布、包级 tag 和 GitHub 配置见[发版说明](./release.md)。

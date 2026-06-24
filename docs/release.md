@@ -2,7 +2,7 @@
 
 本仓库采用 Changesets 的多包独立版本模式。各包独立维护版本、`CHANGELOG.md`、git tag 和 GitHub Release；仓库不维护项目级版本或 `v*` tag。
 
-开发阶段如何添加 changeset 见[开发流程](./development.md)。
+开发阶段如何添加 changeset 见[贡献手册](./development.md)。
 
 ## 自动化职责
 

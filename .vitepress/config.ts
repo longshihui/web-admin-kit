@@ -29,6 +29,16 @@ const packageSidebarItems: DefaultTheme.SidebarItem[] = packageDocs.map((pkg) =>
   }))
 }))
 
+const packageNavItems = packageDocs.map((pkg) => ({
+  text: pkg.displayName,
+  link: pkg.pages[0].routePath
+}))
+
+const packageFeatures = packageDocs.map((pkg) => ({
+  title: pkg.displayName,
+  details: pkg.description || pkg.summary
+}))
+
 export default defineConfig({
   base: docsBase,
   title: 'Web Admin Kit',
@@ -59,24 +69,27 @@ export default defineConfig({
     ...staticRewrites,
     ...packageRewrites
   },
+  transformPageData(pageData) {
+    if (pageData.filePath === 'docs/index.md') {
+      pageData.frontmatter.features = packageFeatures
+    }
+  },
   themeConfig: {
     nav: [
-      { text: '首页', link: '/' },
-      { text: '项目说明', link: '/guide' },
-      { text: '开发流程', link: '/development' },
-      { text: '包文档', link: '/packages/' },
-      { text: '发版说明', link: '/release' }
+      {
+        text: 'API 文档',
+        items: packageNavItems
+      },
+      { text: '贡献手册', link: '/development' }
     ],
     sidebar: {
       '/': [
         {
-          text: '开始使用',
+          text: '贡献手册',
           items: [
-            { text: '首页', link: '/' },
             { text: '项目说明', link: '/guide' },
-            { text: '开发流程', link: '/development' },
-            { text: '发版说明', link: '/release' },
-            { text: '变更日志', link: '/changelog' }
+            { text: '参与开发', link: '/development' },
+            { text: '发版说明', link: '/release' }
           ]
         }
       ],

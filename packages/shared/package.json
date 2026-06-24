@@ -1,7 +1,24 @@
 {
   "name": "@colorless/shared",
   "version": "1.0.0",
-  "description": "Shared types, constants, patterns, and validators for admin products.",
+  "description": "面向中后台项目的共享基础能力包，提供通用类型、常量、正则表达式和轻量校验工具。",
+  "license": "MIT",
+  "keywords": [
+    "typescript",
+    "utilities",
+    "validators",
+    "constants",
+    "admin"
+  ],
+  "homepage": "https://longshihui.github.io/web-admin-kit/packages/shared/",
+  "bugs": {
+    "url": "https://github.com/longshihui/web-admin-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/longshihui/web-admin-kit.git",
+    "directory": "packages/shared"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
